@@ -23,9 +23,9 @@ would result in
 
     begin
       magic = "::::MAGIC::::"
-      master_key = File.read(ARGV[0])
-      hudson_secret_key = File.read(ARGV[1])
-      input_plain = Base64.decode64(ARGV[2])
+      master_key = File.read(args[0])
+      hudson_secret_key = File.read(args[1])
+      input_plain = args[2]
 
       # Decrypt secret key with master key
       hashed_master_key =  Digest::SHA256.digest(master_key).byteslice(0..15)
